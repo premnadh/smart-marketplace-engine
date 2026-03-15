@@ -368,6 +368,89 @@ Potential security improvements:
 
 ---
 
+# 🧪 API Usage Examples
+
+Example API requests using `curl`.
+
+These examples demonstrate how the API can be used programmatically from the command line or other services.
+
+---
+
+## Register User
+
+```bash
+curl -X POST http://127.0.0.1:8000/users/register \
+-H "Content-Type: application/json" \
+-d '{
+"username": "premnadh",
+"email": "prem123@gmail.com",
+"password": "Prem@123"
+}'
+```
+
+---
+
+## Login
+
+```bash
+curl -X POST http://127.0.0.1:8000/users/login \
+-H "Content-Type: application/json" \
+-d '{
+"username": "premnadh",
+"password": "Prem@123"
+}'
+```
+
+Response
+
+```json
+{
+"access_token": "jwt-token",
+"token_type": "bearer"
+}
+```
+
+---
+
+## Create Item Listing
+
+```bash
+curl -X POST http://127.0.0.1:8000/items/create \
+-H "Authorization: Bearer YOUR_JWT_TOKEN" \
+-H "Content-Type: application/json" \
+-d '{
+"title": "iPhone 13",
+"price": 650,
+"category": "electronics",
+"description": "Excellent condition iPhone",
+"seller_id": 175
+}'
+```
+
+---
+
+## Search Items
+
+```bash
+curl "http://127.0.0.1:8000/items/search?q=iphone"
+```
+
+---
+
+## Get Recommendations
+
+```bash
+curl "http://127.0.0.1:8000/recommendations/52"
+```
+
+---
+
+## Get Popular Items
+
+```bash
+curl "http://127.0.0.1:8000/analytics/popular-items"
+```
+---
 # ▶️ Run Locally
 
 Clone repository
